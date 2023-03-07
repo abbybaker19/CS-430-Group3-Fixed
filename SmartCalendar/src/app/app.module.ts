@@ -4,11 +4,13 @@ import { TopNavBarComponent } from './navigation/topnavbar/topnavbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home/containers/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavBarComponent,
+    HomeComponent,
     
   ],
   imports: [
