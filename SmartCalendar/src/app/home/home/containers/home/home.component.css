@@ -1,6 +1,12 @@
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
+.logo{
+    background-color: #1ABC9C;
+    text-align: center;
+}
+
+/*move to calendar component*/
 /* Month header */
 .month {
   padding: 70px 25px;
@@ -71,3 +77,4 @@ body {font-family: Verdana, sans-serif;}
   background: #1abc9c;
   color: white !important
 }
+/*move to calendar component*/
