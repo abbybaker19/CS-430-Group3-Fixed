@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Injector} from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { EventComponent } from './event/event.component';
+import { EventService } from './event/event.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SmartCalendar';
+  title = "title"
+
+  constructor(injector: Injector, public popup: EventService) {
+    // Convert `PopupComponent` to a custom element.
+    const PopupElement = createCustomElement(EventComponent, {injector});
+    // Register the custom element with the browser.
+    customElements.define('popup-element', PopupElement);
+  }
 }

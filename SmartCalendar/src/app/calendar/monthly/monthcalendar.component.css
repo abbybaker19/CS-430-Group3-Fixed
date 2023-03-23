@@ -1,0 +1,61 @@
+.calendar-month-grid {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    border-color: #e1e1e1;
+    border: 1px solid;
+    min-height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.calendar-row {
+    display: flex;
+}
+
+.calendar-row:not(:last-child) {
+    border-bottom-color: #e1e1e1;
+    border-bottom: 1px solid;
+}
+
+.calendar-day-cell {
+    float: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100px;
+}
+
+.calendar-day-cell:not(:last-child) {
+    border-right-color: #e1e1e1;
+    border-right: 1px solid;
+}
+
+.calendar-day-number {
+    font-size: 25px;
+    font-weight: 400;
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.month-control-row {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.column {
+    margin: 10px;
+}
+
+.column, middle {
+    width: 150px;
+    text-align: center;
+}

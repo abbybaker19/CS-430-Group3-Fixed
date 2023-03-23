@@ -1,8 +1,9 @@
 <sc-topnavbar>Loading...</sc-topnavbar>
 
-<h1>Hello World</h1>
- 
- 
-<h2>Welcome to Group 3's Smart Calendar!</h2>
- 
+<button class="create-event" type="button" (click)="popup.showAsComponent()">
+    <span style="color: white">Create Event</span>
+</button>
+
+<calendar-monthly></calendar-monthly>
+<weather></weather>
 <router-outlet></router-outlet>

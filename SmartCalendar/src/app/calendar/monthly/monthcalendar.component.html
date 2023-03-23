@@ -1,0 +1,27 @@
+<div class="month-control-row">
+    <div class="column">
+        <button type="button" (click)="calendar = previousMonth(date.getFullYear(), date.getMonth())">
+            <span>Last Month</span>
+        </button>
+    </div>
+    <div class="column" id="middle">
+        <span>{{monthName}} {{date.getFullYear()}}</span>
+    </div>
+    <div class="column">
+        <button type="button" (click)="calendar = nextMonth(date.getFullYear(), date.getMonth())">
+            <span>Next Month</span>
+        </button>
+    </div>
+</div>
+<calendar-header></calendar-header>
+<div class="calendar-month-grid">
+    <div class="calendar-days">
+        <div class="calendar-row" *ngFor="let row of calendar">
+            <div class="calendar-day-cell" *ngFor="let day of row.days">
+                <span aria-hidden="true">
+                    <span class="calendar-day-number">{{day.date.getDate()}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
