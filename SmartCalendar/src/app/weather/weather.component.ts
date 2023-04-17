@@ -12,6 +12,16 @@ export class WeatherComponent {
 
   data:any;
 
+  weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        
+        d = new Date();
+        day = this.weekday[this.d.getDay()];
+        day2 = this.weekday[this.d.getDay() + 1];
+        day3 = this.weekday[this.d.getDay() + 2];
+        day4 = this.weekday[this.d.getDay() + 3];
+        day5 = this.weekday[this.d.getDay() + 4];
+
+
   ngOnInit(){
     this._weatherService.getData().subscribe(res=>{
       this.data = res;

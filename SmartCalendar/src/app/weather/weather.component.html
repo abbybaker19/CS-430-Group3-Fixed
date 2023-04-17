@@ -1,5 +1,118 @@
-<div>
+<!-- <div>
     <td>
-        {{ data.weather[0].description }}
+        {{ data.list[0].weather[0].description }}
+        {{ data.list[0].main.temp }}
+        {{ data.list[0].main.feels_like }}
+        {{ data.list[0].main.humidity }}
+        {{ data.city.name }}
+        {{ data.city.country }}
+        {{ data.list[0].dt_txt.substring(11) }}
     </td>
+</div> -->
+
+<div class="container">
+    <div class="card card-1">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+           
+  
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="temp">{{((data.list[0].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div> 
+                      <div class="location">{{ data.city.name }}, {{ data.city.country }}</div>
+                    </div>
+                    <div class="col-6 justify-content-right">
+                      <img class="img-fluid" src="https://img.icons8.com/plasticine/100/000000/sun.png">
+                    </div>
+                  </div>
+                 
+              </div>
+            </div>
+          
+          </div>
+    </div>
+    <div class="card card-2">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <div class="row row1">{{((data.list[0].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{ data.list[0].dt_txt.substring(11) }}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[1].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{ data.list[1].dt_txt.substring(11) }}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[2].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{ data.list[2].dt_txt.substring(11) }}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[3].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{ data.list[3].dt_txt.substring(11) }}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[4].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{ data.list[4].dt_txt.substring(11) }}</div>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      
+      </div>
+      
+      
+    </div>
+    <div class="card card-3">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- The slideshow -->
+        <div class=>
+          <div class=>
+            <div class="row">
+              <div class="col">
+                <div class="row row1">{{((data.list[0].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{day}}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[8].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{day2}}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[16].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{day3}}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[24].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{day4}}</div>
+              </div>
+              <div class="col">
+                <div class="row row1">{{((data.list[32].main.temp -273.15) * 9/5 + 32).toFixed(1)}}&deg;</div>
+                <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+                <div class="row row3">{{day5}}</div>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      
+      </div>
+    </div>
+        
 </div>
