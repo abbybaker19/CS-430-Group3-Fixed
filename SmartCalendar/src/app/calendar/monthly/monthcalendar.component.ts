@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Day } from '../day';
 import { Week, Weeks } from '../week';
+import { EventService } from 'src/app/event/event.service';
+import { DatePipe } from '@angular/common';
+import { AppComponent } from 'src/app/app.component';
+import { Event } from 'src/app/event/event';
 
 export interface Days extends Array<Day> {}
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -13,6 +17,9 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 
 export class MonthCalendarComponent {
 
+  constructor(public eventService: EventService,
+    private datePipe: DatePipe) {}
+
   date = new Date();
 
   year = this.date.getFullYear();
@@ -21,6 +28,34 @@ export class MonthCalendarComponent {
   calendar = this.generateMonth(this.year, this.month);
 
   monthName = monthNames[this.month];
+
+  getMonth(month: number): number{
+    return month + 1;
+  }
+
+  dateHasEvent(date: Date): boolean {
+    for(let event of AppComponent.events){
+      // console.log(event.date)
+      // console.log("DATE: " + this.datePipe.transform(date, 'yyyy-MM-dd'))
+      if(event.date == this.datePipe.transform(date, 'yyyy-MM-dd')){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  getEvents(date: Date): Event[] {
+    let events: Event[] = [];
+    for(let event of AppComponent.events){
+      // console.log("TEST")
+      if(event.date == this.datePipe.transform(date, 'yyyy-MM-dd')){
+        // console.log(event.date)
+        events.push(event);
+        // console.log(events)
+      }
+    }
+    return events;
+  }
 
   previousMonth(year: number, month: number): Weeks {
     this.date = new Date(year, month - 1);
@@ -66,6 +101,7 @@ export class MonthCalendarComponent {
               date: new Date(year, month-1, k),
               events: [
                 {
+                  id: -1,
                   name: "",
                   date: "",
                   time: "",
@@ -81,6 +117,7 @@ export class MonthCalendarComponent {
             date: new Date(year, month, daysInNextMonth),
             events: [
               {
+                id: -1,
                 name: "",
                 date: "",
                 time: "",
@@ -97,6 +134,7 @@ export class MonthCalendarComponent {
             date: new Date(year, month, date),
             events: [
               {
+                id: -1,
                 name: "",
                 date: "",
                 time: "",

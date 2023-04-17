@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
@@ -23,10 +23,12 @@ const getUser = require('./routes/get-user');
 const addUser = require('./routes/add-user');
 const getEvent = require('./routes/get-event');
 const addEvent = require('./routes/add-event');
+const deleteEvent = require('./routes/delete-event');
 app.use('/get-user', getUser);
 app.use('/add-user', addUser);
 app.use('/get-event', getEvent);
 app.use('/add-event', addEvent);
+app.use('/delete-event', deleteEvent);
 
 
 app.listen(port, () => {

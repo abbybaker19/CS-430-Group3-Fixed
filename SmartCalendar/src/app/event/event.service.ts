@@ -2,6 +2,7 @@ import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '
 import { HttpClient } from '@angular/common/http';
 import { Event } from './event';
 import { CreateEventComponent } from './createevent.component';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EventService {
@@ -45,8 +46,12 @@ export class EventService {
     return this.http.get(`${this.apiUrl}/get-event`, {responseType: 'json'});
   }
 
+  deleteEvent(event: Event): Observable<any> {
+    console.log("deleting...")
+    return this.http.delete(`${this.apiUrl}/delete-event/${event.id}`);
+  }
+
   addEvent(event: Event) {
-    console.log("Inside event service");
     return this.http.post(`${this.apiUrl}/add-event`, event, {responseType: 'json'});
   }
 }

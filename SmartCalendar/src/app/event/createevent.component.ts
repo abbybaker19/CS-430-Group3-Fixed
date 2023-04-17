@@ -1,35 +1,43 @@
 import { Component, EventEmitter, Injectable, HostBinding, Input, Output } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { DatePipe } from '@angular/common';
 
 import { Event } from './event';
 import { EventService } from './event.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'create-event-form',
   templateUrl: './createevent.component.html',
-  styleUrls: ['./createevent.component.css']
+  styleUrls: ['./createevent.component.css'],
+  animations: [
+    trigger('state', [
+      state('opened', style({transform: 'translateY(0%)'})),
+      state('void, closed', style({transform: 'translateY(100%)', opacity: 0})),
+      transition('* => *', animate('100ms ease-in')),
+    ])
+  ],
 })
 
 @Injectable()
 export class CreateEventComponent {
 
-    constructor(private eventService: EventService) { }
+    constructor(private eventService: EventService,
+                private datePipe: DatePipe) { }
 
-    model = new Event('', '', '', '');
-
-    submitted = false;
-
-    onSubmit() { this.submitted = false; }
+    model = new Event(AppComponent.events.length, '', '', '', '');
 
     createEvent() {
-        console.log("creating event...");
+        this.model.date=this.datePipe.transform(this.model.date, 'yyyy-MM-dd');
+        // console.log(this.model.date)
+        // console.log("creating event...");
         this.eventService.addEvent(this.model).subscribe(response => {
             console.log(response);
           });
     }
 
-    closeEventCreation() {
-      console.log('CLOSED');
-      this.state = 'closed';
+    reload() {
+      // window.location.reload();
     }
 
     dragPosition = {x: 0, y: 0};
@@ -39,15 +47,7 @@ export class CreateEventComponent {
     }
   
     @HostBinding('@state')
-    state: 'opened' | 'closed' = 'closed';
-  
-    @Input()
-    get message(): string { return this._message; }
-    set message(message: string) {
-      this._message = message;
-      this.state = 'opened';
-    }
-    private _message = '';
+    state: 'opened' | 'closed' = 'opened';
   
     @Output()
     closed = new EventEmitter<void>();

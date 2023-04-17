@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialExampleModule } from './material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DetailViewComponent } from './calendar/detail/detail-view/detail-view.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { DetailViewComponent } from './calendar/detail/detail-view/detail-view.c
     MatNativeDateModule,
     MaterialExampleModule,
   ],
-  providers: [EventService, CreateEventComponent],
+  providers: [EventService, CreateEventComponent, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

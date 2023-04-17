@@ -1,15 +1,11 @@
 <sc-topnavbar>Loading...</sc-topnavbar>
-<div>
-    <button class="create-event" type="button" (click)="eventService.showAsComponent();">
-        <span style="color: white">Create Event</span>
-    </button>
-</div>
 
-<h2>Event List</h2>
+<!-- <h2>Event List</h2>
 <ul>
-  <li *ngFor="let event of events">{{ event.name }}</li>
-</ul>
+  <li *ngFor="let event of AppComponent.events">{{ event.name }}</li>
+</ul> -->
 
-
+<!-- <create-event-form></create-event-form> -->
+<calendar-monthly></calendar-monthly>
 <!-- <weather></weather> -->
 <router-outlet></router-outlet>
