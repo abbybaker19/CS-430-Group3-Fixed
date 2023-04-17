@@ -9,10 +9,9 @@ import { AppComponent } from './app.component';
 import { MonthCalendarComponent } from './calendar/monthly/monthcalendar.component';
 import { CalendarHeaderComponent } from './calendar/header/calendarheader.component';
 import { WeatherComponent } from './weather/weather.component';
-// import { EventComponent } from './event/event.component';
 import { CreateEventComponent } from './event/createevent.component';
 import { EventService } from './event/event.service';
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MaterialExampleModule } from './material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 
@@ -31,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppRoutingModule,
     HttpClientModule,
     DragDropModule,
+    FormsModule,
     MatNativeDateModule,
     MaterialExampleModule,
   ],
