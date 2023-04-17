@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopNavBarComponent } from './navigation/topnavbar/topnavbar.component';
+import { HomeLayoutComponent } from './home-page/home-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { DetailViewComponent } from './calendar/detail/detail-view/detail-view.c
 @NgModule({
   declarations: [
     AppComponent,
+    HomeLayoutComponent,
     TopNavBarComponent,
     MonthCalendarComponent,
     CalendarHeaderComponent,
