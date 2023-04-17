@@ -8,6 +8,11 @@
     <div class="column" id="middle">
         <span style="font-size: larger; font-weight: bold; color: black">{{monthName}} {{date.getFullYear()}}</span>
     </div>
+    <div>
+        <button class="create-event" type="button" (click)="eventService.showAsComponent();">
+            <span style="color: white">Create Event</span>
+        </button>
+    </div>
     <div class="column">
         <button type="button" class="button" (click)="calendar = nextMonth(date.getFullYear(), date.getMonth())">
             <span>Next Month</span>
@@ -19,20 +24,24 @@
     <div class="calendar-days">
         <div class="calendar-row" *ngFor="let row of calendar">
             <div class="calendar-day-cell" *ngFor="let day of row.days">
-               
+                <div *ngIf="dateHasEvent(day.date); else elseBlock">
+                        <span aria-hidden="true">
+                            <div class="calendar-day-number circle">
+                                    {{day.date.getDate()}}
+                            </div>
+                        </span>
+                        <app-detail-view 
+                            [events]="getEvents(day.date)"
+                        >
+                        </app-detail-view>
+                </div>
+                <ng-template #elseBlock>
                     <span aria-hidden="true">
                         <span class="calendar-day-number"> 
                             {{day.date.getDate()}}  
-                            <app-detail-view 
-                            id = {{day.date.getDate()}} 
-                            month = {{day.date.getMonth()}} 
-                            year = {{day.date.getFullYear()}}
-                            date = {{day.date.getMonth()}}{{day.date.getDate()}}{{day.date.getFullYear()}} >
-                               
-                            </app-detail-view>
                         </span>
                     </span>
-               
+                </ng-template>
             </div>
         </div>
     </div>

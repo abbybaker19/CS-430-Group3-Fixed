@@ -27,6 +27,7 @@
     flex-direction: column;
     align-items: stretch;
     min-height: 100px;
+    position: relative;
 }
 
 .calendar-day-cell:not(:last-child) {
@@ -66,3 +67,27 @@
     color: white;
 }
 
+.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    /* padding: 10px; */
+    background: #fff;
+    border: 3px solid #000;
+    color: #000;
+    text-align: center;
+    /* font: 32px Arial, sans-serif; */
+  }
+
+  .create-event {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: right;
+    align-items: stretch;
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}

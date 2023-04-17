@@ -2,6 +2,7 @@
     "name": "smart-calendar",
     "version": "0.0.0",
     "dependencies": {
+        "@angular/animations": "^15.2.7",
         "@angular/cdk": "^15.2.7",
         "@angular/core": "^15.2.6",
         "@angular/elements": "^15.2.7",
@@ -10,6 +11,8 @@
         "@angular/platform-browser-dynamic": "^15.2.7",
         "@angular/router": "^15.2.7",
         "angular-material": "^1.2.5",
+        "cors": "^2.8.5",
+        "sqlite3": "^5.1.6",
         "bootstrap": "^5.3.0-alpha3"
     },
     "devDependencies": {

@@ -1,6 +1,5 @@
 import { Component, Injector} from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-// import { EventComponent } from './event/event.component';
 import { EventService } from './event/event.service';
 import { Event } from './event/event';
 import { CreateEventComponent } from './event/createevent.component';
@@ -12,9 +11,9 @@ import { CreateEventComponent } from './event/createevent.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  events: Event[] = [];
   
   title = "title"
+  static events: Event[] = [];
 
 
   constructor(injector: Injector,
@@ -30,16 +29,11 @@ export class AppComponent {
     this.eventService.getEvents().subscribe((data: any) => {
       // Check if the response data is an array
       if (Array.isArray(data)) {
-        this.events = data;
+        AppComponent.events = data;
       } else {
         // If it's an object, assume it contains a single user object
-        this.events = [data];
-        console.log(data)
+        AppComponent.events = [data];
       }
     });
   }
-
-  // clearSubmitted(): void {
-  //   this.createEvent.submitted = false;
-  // }
 }
