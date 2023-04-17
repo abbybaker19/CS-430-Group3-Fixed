@@ -1,7 +1,12 @@
 .create-event {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: right;
+    align-items: stretch;
     position: absolute;
     right: 0;
+    margin: 10px;
     background-color: cornflowerblue;
-    min-height: 30px;
-    border-radius: 15%;
+    border-radius: 10px;
 }

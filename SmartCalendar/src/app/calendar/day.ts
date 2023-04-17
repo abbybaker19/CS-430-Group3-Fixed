@@ -1,8 +1,8 @@
-import { CalendarEvent } from "./event";
+import { Event } from "../event/event";
 
 export interface Day {
     date: Date;
-    events: CalendarEvent[];
+    events: Event[];
 }
 
 export interface Days extends Array<Day>{}

@@ -1,22 +1,23 @@
 import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
-import { NgElement, WithProperties } from '@angular/elements';
-import { EventComponent } from './event.component';
-
+import { HttpClient } from '@angular/common/http';
+import { Event } from './event';
+import { CreateEventComponent } from './createevent.component';
 
 @Injectable()
 export class EventService {
   constructor(private injector: Injector,
               private applicationRef: ApplicationRef,
-              private componentFactoryResolver: ComponentFactoryResolver) {}
+              private componentFactoryResolver: ComponentFactoryResolver,
+              private http: HttpClient) {}
 
   // Previous dynamic-loading method required you to set up infrastructure
   // before adding the popup to the DOM.
   showAsComponent() {
     // Create element
-    const popup = document.createElement('event-creator');
+    const popup = document.createElement('create-event-form');
 
     // Create the component and wire it up with the element
-    const factory = this.componentFactoryResolver.resolveComponentFactory(EventComponent);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(CreateEventComponent);
     const eventComponentRef = factory.create(this.injector, [], popup);
 
     // Attach to the view so that the change detector knows to run
@@ -32,15 +33,20 @@ export class EventService {
     document.body.appendChild(popup);
   }
 
-  // This uses the new custom-element method to add the popup to the DOM.
-  showAsElement() {
-    // Create element
-    const popupEl: NgElement & WithProperties<EventComponent> = document.createElement('event-creator') as any;
+  ///////////////////////
+  //
+  //  BACKEND SERVICES
+  //
+  ///////////////////////
 
-    // Listen to the close event
-    popupEl.addEventListener('closed', () => document.body.removeChild(popupEl));
+  private apiUrl = 'http://localhost:3000';
 
-    // Add to the DOM
-    document.body.appendChild(popupEl);
+  getEvents() {
+    return this.http.get(`${this.apiUrl}/get-event`, {responseType: 'json'});
+  }
+
+  addEvent(event: Event) {
+    console.log("Inside event service");
+    return this.http.post(`${this.apiUrl}/add-event`, event, {responseType: 'json'});
   }
 }

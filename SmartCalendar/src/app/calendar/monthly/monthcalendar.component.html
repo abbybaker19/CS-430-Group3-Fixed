@@ -1,14 +1,14 @@
 <div class="month-control-row">
     <div class="column">
-        <button type="button" (click)="calendar = previousMonth(date.getFullYear(), date.getMonth())">
+        <button type="button" class="button" (click)="calendar = previousMonth(date.getFullYear(), date.getMonth())">
             <span>Last Month</span>
         </button>
     </div>
     <div class="column" id="middle">
-        <span>{{monthName}} {{date.getFullYear()}}</span>
+        <span style="font-size: larger; font-weight: bold; color: black">{{monthName}} {{date.getFullYear()}}</span>
     </div>
     <div class="column">
-        <button type="button" (click)="calendar = nextMonth(date.getFullYear(), date.getMonth())">
+        <button type="button" class="button" (click)="calendar = nextMonth(date.getFullYear(), date.getMonth())">
             <span>Next Month</span>
         </button>
     </div>
@@ -18,9 +18,11 @@
     <div class="calendar-days">
         <div class="calendar-row" *ngFor="let row of calendar">
             <div class="calendar-day-cell" *ngFor="let day of row.days">
-                <span aria-hidden="true">
-                    <span class="calendar-day-number">{{day.date.getDate()}}</span>
-                </span>
+                <a href={{day.date.getDate()}}>
+                    <span aria-hidden="true">
+                        <span class="calendar-day-number">{{day.date.getDate()}}</span>
+                    </span>
+                </a>
             </div>
         </div>
     </div>

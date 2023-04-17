@@ -1,5 +1,18 @@
 {
-  "devDependencies": {
-    "@types/jquery": "^3.5.16"
-  }
+    "name": "smart-calendar",
+    "version": "0.0.0",
+    "dependencies": {
+        "@angular/cdk": "^15.2.7",
+        "@angular/core": "^15.2.6",
+        "@angular/elements": "^15.2.7",
+        "@angular/forms": "^15.2.7",
+        "@angular/material": "^15.2.7",
+        "@angular/platform-browser-dynamic": "^15.2.7",
+        "@angular/router": "^15.2.7",
+        "angular-material": "^1.2.5"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^15.2.6",
+        "tslib": "^2.5.0"
+    }
 }

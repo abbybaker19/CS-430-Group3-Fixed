@@ -67,9 +67,9 @@ export class MonthCalendarComponent {
               events: [
                 {
                   name: "",
-                  location: "",
+                  date: "",
                   time: "",
-                  alert: ""
+                  location: ""
                 }
               ]
             };
@@ -82,9 +82,9 @@ export class MonthCalendarComponent {
             events: [
               {
                 name: "",
-                location: "",
+                date: "",
                 time: "",
-                alert: ""
+                location: ""
               }
             ]
           };
@@ -98,9 +98,9 @@ export class MonthCalendarComponent {
             events: [
               {
                 name: "",
-                location: "",
+                date: "",
                 time: "",
-                alert: ""
+                location: ""
               }
             ]
           };
