@@ -14,6 +14,7 @@ import { EventService } from './event/event.service';
 import { FormsModule } from '@angular/forms';
 import { MaterialExampleModule } from './material.module';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DetailViewComponent } from './calendar/detail/detail-view/detail-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MonthCalendarComponent,
     CalendarHeaderComponent,
     WeatherComponent,
-    CreateEventComponent
+    CreateEventComponent, 
+    DetailViewComponent
   ],
   imports: [
     BrowserModule,

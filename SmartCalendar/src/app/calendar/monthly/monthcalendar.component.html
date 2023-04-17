@@ -18,11 +18,20 @@
     <div class="calendar-days">
         <div class="calendar-row" *ngFor="let row of calendar">
             <div class="calendar-day-cell" *ngFor="let day of row.days">
-                <a href={{day.date.getDate()}}>
+               
                     <span aria-hidden="true">
-                        <span class="calendar-day-number">{{day.date.getDate()}}</span>
+                        <span class="calendar-day-number"> 
+                            {{day.date.getDate()}}  
+                            <app-detail-view 
+                            id = {{day.date.getDate()}} 
+                            month = {{day.date.getMonth()}} 
+                            year = {{day.date.getFullYear()}}
+                            date = {{day.date.getMonth()}}{{day.date.getDate()}}{{day.date.getFullYear()}} >
+                               
+                            </app-detail-view>
+                        </span>
                     </span>
-                </a>
+               
             </div>
         </div>
     </div>
