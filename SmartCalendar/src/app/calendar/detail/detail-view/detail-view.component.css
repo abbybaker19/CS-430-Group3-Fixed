@@ -13,3 +13,7 @@
     margin-bottom: 1rem;
     border-top: 1px;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: cornflowerblue !important;
+}

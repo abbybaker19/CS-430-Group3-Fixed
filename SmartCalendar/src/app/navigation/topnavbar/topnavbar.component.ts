@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 
+
 @Component ({
     selector: 'sc-topnavbar',
     templateUrl: 'topnavbar.component.html',
